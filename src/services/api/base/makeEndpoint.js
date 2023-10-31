@@ -1,5 +1,3 @@
-// import {isEmpty} from "@firebase/util"
-
 export const makeEndpoint = ({
                                  args,
                                  tagType,
@@ -29,12 +27,12 @@ export const makeEndpoint = ({
                 body
             }
         },
-        async transformResponse(result, meta, arg) {
-            return await new Promise((resolve, reject) => {
+        transformResponse(result, meta, arg) {
+            return new Promise((resolve, reject) => {
                 setTimeout(() => {
-                    resolve(isInvalidatesTags ? result : result.data || [])
-                }, 100)
-            })
+                    resolve(isInvalidatesTags ? result : result.data || []);
+                }, 100);
+            });
         },
         [isInvalidatesTags ? "invalidatesTags" : "providesTags"]: (
             result,
@@ -42,8 +40,7 @@ export const makeEndpoint = ({
             page
         ) => {
             if (!isInvalidatesTags) {
-                // return !isEmpty(result) && result?.list
-                return result  ?
+                return result ?
                     [
                         ...result.map(({id}) => ({type: tagType, id})),
                         {

@@ -1,5 +1,6 @@
 import {createSlice, isAnyOf,} from '@reduxjs/toolkit'
-import {verifyKycApi} from "src/services/api/verifyKycApi";
+// import {verifyKycApi} from "src/services/api/verifyKycApi";
+import {bookApi} from "../../api/bookApi";
 
 export const tableInitialState = {
     entities: [],
@@ -15,8 +16,8 @@ export const tableInitialState = {
         total: 0
     }
 };
-//add many endpoints at here
-const isGetSuccess = isAnyOf(verifyKycApi.endpoints.getListUserEykc.matchFulfilled,)
+// add many endpoints at here
+const isGetSuccess = isAnyOf(bookApi.endpoints.get.matchFulfilled,)
 export const baseSlice = createSlice({
     name: 'table',
     initialState: tableInitialState,
@@ -52,4 +53,3 @@ export const baseSlice = createSlice({
         })
     }
 });
-

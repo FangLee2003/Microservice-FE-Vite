@@ -4,7 +4,7 @@ import {baseQuery} from "src/services/api/base/baseQuery";
 export const tagTypes = ['Books'];
 export const baseApi = createApi({
     reducerPath: 'api',
-    baseQuery: baseQuery,
-    tagTypes: tagTypes,
+    baseQuery,
+    tagTypes,
     endpoints: (builder) => ({}),
 });

@@ -10,12 +10,11 @@ const initReducer = {
     [baseApi.reducerPath]: baseApi.reducer,
 }
 
-export const reducers = (reducer) => {
-    return combineReducers({
-        ...initReducer,
-        ...reducer,
-    })
-}
+export const reducers = (reducer) => combineReducers({
+    ...initReducer,
+    ...reducer,
+})
+
 export const makeStore = () => configureStore({
     reducer: initReducer,
     devTools: true,

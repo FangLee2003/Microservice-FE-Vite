@@ -9,7 +9,7 @@ export const createTableEnhancer = createStore => (
         let newState = state
         newState = reducer(state, action)
         // if (Router.router) {
-        //     // @ts-ignore
+        //     @ts-ignore
         //     const slice: Slice = routerConfig.includes(action.type) ? getSlice(action.type) : getSlice(Router.pathname);
         //     if (slice?.name && newState[`${slice.name}`] === undefined) {
         //         newState[`${slice.name}`] = slice.reducer(state?.[`${slice.name}`], action);
