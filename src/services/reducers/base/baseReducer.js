@@ -17,7 +17,9 @@ export const tableInitialState = {
     }
 };
 // add many endpoints at here
-const isGetSuccess = isAnyOf(bookApi.endpoints.get.matchFulfilled,)
+const isGetSuccess = isAnyOf(
+    bookApi.endpoints.get.matchFulfilled,
+)
 export const baseSlice = createSlice({
     name: 'table',
     initialState: tableInitialState,

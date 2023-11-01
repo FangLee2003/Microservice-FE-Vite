@@ -1,5 +1,4 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {authApi} from "src/services/api/authApi";
 
 // interface IUserState {
 //     token: string | null;
@@ -33,14 +32,14 @@ export const userSlice = createSlice({
             }
         },
     },
-    extraReducers: (builder) => {
-        builder.addMatcher(authApi.endpoints.login.matchFulfilled, (state, action) => {
-            const {data} = action.payload;
-            if (data !== null && data?.jwtToken) {
-                state.token = data.jwtToken;
-            }
-        });
-    }
+    // extraReducers: (builder) => {
+    //     builder.addMatcher(authApi.endpoints.login.matchFulfilled, (state, action) => {
+    //         const {data} = action.payload;
+    //         if (data !== null && data?.jwtToken) {
+    //             state.token = data.jwtToken;
+    //         }
+    //     });
+    // }
 });
 
 export default userSlice.reducer;

@@ -17,7 +17,6 @@ export const authApi = baseApi.injectEndpoints({
                 }
             }
         }),
-
         forgotPW: builder.mutation({
             query(data) {
                 return {

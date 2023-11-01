@@ -7,7 +7,7 @@ import {baseSlice} from "src/services/reducers/base/baseReducer";
 const initReducer = {
     [userSlice.name]: userSlice.reducer,
     [baseSlice.name]: baseSlice.reducer,
-    [baseApi.reducerPath]: baseApi.reducer,
+    [baseApi.reducerPath]: baseApi.reducer
 }
 
 export const reducers = (reducer) => combineReducers({
