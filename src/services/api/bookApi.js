@@ -1,7 +1,12 @@
-import {baseApi} from "src/services/api/base/baseApi";
+import {baseApi, tagTypes} from "src/services/api/base/baseApi";
 import {makeEndpoint} from "src/services/api/base/makeEndpoint";
+import {createApi} from "@reduxjs/toolkit/dist/query/react";
+import {baseQuery} from "./base/baseQuery";
 
-export const bookApi = baseApi.injectEndpoints({
+export const bookApi = createApi({
+    reducerPath: 'bookApi',
+    baseQuery,
+    tagTypes,
     overrideExisting: true,
     endpoints: (builder) => ({
         get: builder.query(makeEndpoint({

@@ -16,12 +16,17 @@ import useBookApi from "../../../hooks/useBookApi";
 // ----------------------------------------------------------------------
 
 export default function ProductsView() {
-    try {
-        const { get } = useBookApi();
-        const data = get.useQuery();
-        console.log(data);
-    } catch (error) {
-        console.error('An error occurred:', error);
+    const {get} = useBookApi();
+    const data = get.useQuery();
+
+    if (data.isLoading) {
+        console.log('Loading data...');
+    } else if (data.isError) {
+        console.error('An error occurred:', data.error);
+    } else if (data.isSuccess) {
+        console.log('Data:', data);
+    } else {
+        console.log('Data is uninitialized or fetching.');
     }
 
     const [openFilter, setOpenFilter] = useState(false);
