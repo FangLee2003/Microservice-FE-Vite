@@ -20,7 +20,7 @@ export const reducers = (reducer) => combineReducers({
 export const makeStore = () => configureStore({
     reducer: initReducer,
     devTools: true,
-    enhancers: [createTableEnhancer],
+    // enhancers: [createTableEnhancer],
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(
         baseApi.middleware, bookApi.middleware
     ),
