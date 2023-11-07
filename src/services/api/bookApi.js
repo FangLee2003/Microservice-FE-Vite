@@ -6,7 +6,7 @@ export const bookApi = createApi({
     reducerPath: 'bookApi',
     baseQuery: fetchBaseQuery({
         baseUrl: apiURL,
-        mode: 'no-cors',
+        // mode: 'no-cors',
         headers: {
             "Content-Type": "application/json"
         },
@@ -14,7 +14,7 @@ export const bookApi = createApi({
     overrideExisting: true,
     endpoints: (builder) => ({
         get: builder.query({
-            query: () => `books`,
+            query: () => `pokemon`,
             method: "GET",
         }),
         getById: builder.query({

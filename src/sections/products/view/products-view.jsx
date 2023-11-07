@@ -11,22 +11,19 @@ import ProductCard from '../product-card';
 import ProductSort from '../product-sort';
 import ProductFilters from '../product-filters';
 import ProductCartWidget from '../product-cart-widget';
-import useBookApi from "../../../hooks/useBookApi";
+import {useGetQuery} from "src/services/api/bookApi";
 
 // ----------------------------------------------------------------------
 
 export default function ProductsView() {
-    const {get} = useBookApi();
-    const data = get.useQuery();
+    const {data, isLoading, error} = useGetQuery();
 
-    if (data.isLoading) {
+    if (isLoading) {
         console.log('Loading data...');
-    } else if (data.isError) {
-        console.error('An error occurred:', data.error);
-    } else if (data.isSuccess) {
-        console.log('Data:', data);
+    } else if (error) {
+        console.error('An error occurred:', error);
     } else {
-        console.log('Data is uninitialized or fetching.');
+        console.log('Data:', data);
     }
 
     const [openFilter, setOpenFilter] = useState(false);
