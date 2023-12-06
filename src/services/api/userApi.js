@@ -2,8 +2,8 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 
 const apiURL = import.meta.env.VITE_API_URL
 
-export const bookApi = createApi({
-    reducerPath: 'bookApi',
+export const userApi = createApi({
+    reducerPath: 'userApi',
     baseQuery: fetchBaseQuery({
         baseUrl: apiURL,
         // mode: 'no-cors',
@@ -14,46 +14,43 @@ export const bookApi = createApi({
     overrideExisting: true,
     endpoints: (builder) => ({
         get: builder.query({
-            query: () => `books`,
+            query: () => `employees`,
             method: "GET",
         }),
         getById: builder.query({
             args: {
-                url: `books`,
+                url: `employees`,
                 method: "GET",
             },
             options: (params) => ({
                 url: `${params.args.url}/${params.body}`
             }),
-            tagType: "Books",
+            tagType: "Employees",
         }),
         add: builder.mutation({
             args: {
-                url: `books`,
+                url: `employees`,
                 method: "POST"
             },
             isInvalidatesTags: true,
-            tagType: "Books",
+            tagType: "Employees",
         }),
         update: builder.mutation({
             args: {
-                url: `books`,
+                url: `employees`,
                 method: "PUT"
             },
             isInvalidatesTags: true,
-            tagType: "Books",
+            tagType: "Employees",
         }),
         remove: builder.mutation({
-            args: {
-                url: `books`,
+            query: ({employeeId})=>({
+                url: `employees/${employeeId}`,
                 method: "DELETE",
-            },
-            options: (params) => ({
-                url: `${params.args.url}/${params.body}`
             }),
             isInvalidatesTags: true,
-            tagType: "Books",
+            tagType: "Employees",
         }),
     })
 });
-export const {useGetQuery, useGetByIdQuery, useUpdateMutation, useRemoveMutation} = bookApi;
+export const {useGetQuery, useGetByIdQuery, useUpdateMutation, useRemoveMutation} = userApi;

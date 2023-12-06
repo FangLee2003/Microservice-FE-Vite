@@ -4,12 +4,14 @@ import {createTableEnhancer} from "src/services/api/enhancer";
 import {baseApi} from "src/services/api/base/baseApi";
 import {baseSlice} from "src/services/reducers/base/baseReducer";
 import {bookApi} from "../services/api/bookApi";
+import {userApi} from "../services/api/userApi";
 
 const initReducer = {
     [userSlice.name]: userSlice.reducer,
     [baseSlice.name]: baseSlice.reducer,
     [baseApi.reducerPath]: baseApi.reducer,
-    [bookApi.reducerPath]: bookApi.reducer
+    [bookApi.reducerPath]: bookApi.reducer,
+    [userApi.reducerPath]: userApi.reducer
 }
 
 export const reducers = (reducer) => combineReducers({
@@ -22,7 +24,7 @@ export const makeStore = () => configureStore({
     devTools: true,
     // enhancers: [createTableEnhancer],
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(
-        baseApi.middleware, bookApi.middleware
+        baseApi.middleware, bookApi.middleware, userApi.middleware
     ),
 });
 

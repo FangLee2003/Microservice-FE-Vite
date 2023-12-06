@@ -55,13 +55,12 @@ export default function ProductsView() {
                         onOpenFilter={handleOpenFilter}
                         onCloseFilter={handleCloseFilter}
                     />
-
                     <ProductSort/>
                 </Stack>
             </Stack>
 
             <Grid container spacing={3}>
-                {products.map((product) => (
+                {data?.map((product) => (
                     <Grid key={product.id} xs={12} sm={6} md={3}>
                         <ProductCard product={product}/>
                     </Grid>
