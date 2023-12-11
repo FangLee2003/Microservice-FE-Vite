@@ -134,7 +134,7 @@ export default function UserPage() {
                                 onSelectAllClick={handleSelectAllClick}
                                 headLabel={[
                                     {id: 'name', label: 'Name'},
-                                    // { id: 'company', label: 'Company' },
+                                    {id: 'department', label: 'Department'},
                                     {id: 'role', label: 'Role'},
                                     // { id: 'isVerified', label: 'Verified', align: 'center' },
                                     {id: 'status', label: 'Status'},
@@ -147,6 +147,7 @@ export default function UserPage() {
                                         key={row.employeeId}
                                         employeeId={row.employeeId}
                                         name={row.firstName + row.lastName}
+                                        department={row.department}
                                         role={row.role}
                                         status={row.isDisciplined}
                                         // company={row.company}
